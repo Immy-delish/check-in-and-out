@@ -43,23 +43,69 @@
               } else {
                 echo "PHP is Bad";
               }
-
-
-
-
-
-
+              
         ?>
-    
-     <h2>Table showing my timetable checkins and checkouts</h2>
+ 
+     <h3>Register for PHP Classes</h3>
 
+     <?php
+// Define the test_input() function for input sanitization
+function test_input($data) {
+  $data = trim($data);            // Remove leading/trailing whitespace
+  $data = stripslashes($data);    // Remove backslashes (\)
+  $data = htmlspecialchars($data); // Convert special characters to HTML entities
+  return $data;
+}
 
+// Define variables to store form data and error messages
+$nameErr = $emailErr = $genderErr = "";
+$name = $email = $gender = $comment = $website = "";
 
+// Validate form inputs when form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
 
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+  
+  // Repeat the same pattern for other form fields...
+}
+?>
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .error { color: red; }
+  </style>
+</head>
+<body>
 
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
+Name: <input type="text" name="name" value="<?php echo $name; ?>">
+<span class="error">* <?php echo $nameErr;?></span>
+<br><br>
+E-mail:
+<input type="text" name="email" value="<?php echo $email; ?>">
+<span class="error">* <?php echo $emailErr;?></span>
+<br><br>
+<!-- Repeat for other form fields... -->
 
+<input type="submit" name="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
 
 
 
