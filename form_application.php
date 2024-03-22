@@ -12,14 +12,11 @@
 <body>
 
 <?php
-// Establish database connection
-include 'db_connection.php';
-
-// Function to sanitize form inputs
+// Define the test_input() function for input sanitization
 function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = trim($data);            // Remove leading/trailing whitespace
+    $data = stripslashes($data);    // Remove backslashes (\)
+    $data = htmlspecialchars($data); // Convert special characters to HTML entities
     return $data;
 }
 
@@ -54,18 +51,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $comment = test_input($_POST["Comment"]);
     }
 
+    // Handle gender input
+    if (isset($_POST["gender"])) {
+        $gender = test_input($_POST["gender"]);
+    } else {
+        // Gender not selected, handle this case if necessary
+    }
+
     // If all fields are valid, insert data into database
     if (empty($nameErr) && empty($emailErr) && empty($commentErr)) {
+        // Include database connection
+        include 'db_connection.php';
+        
+        // Create connection
+        $conn = mysqli_connect($host, $username, $password, $dbname);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        
         // Prepare SQL statement to insert data into the registrations table
         $sql = "INSERT INTO registrations (name, email, comment, gender) VALUES ('$name', '$email', '$comment', '$gender')";
 
         // Execute SQL statement
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
+        if (mysqli_query($conn, $sql)) {
             echo "Registration successful";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
+
+        // Close the database connection
+        mysqli_close($conn);
     }
 }
 ?>
