@@ -75,6 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         // Execute SQL statement
         if (mysqli_query($conn, $sql)) {
             echo "Registration successful";
+
+            // Redirect user to a new page after successful registration
+            header("Location: registration_success.php");
+            exit(); // Ensure script execution stops after redirection
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -121,6 +125,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <input type="submit" name="submit" value="Submit">
 
 </form>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+});
+</script>
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
 
 </body>
 </html>
