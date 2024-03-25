@@ -4,21 +4,18 @@
         <title>traning</title>
         <!DOCTYPE html>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- Additional CSS and JavaScript imports can go here -->
-    <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    </head>
-
 
     </head>
      
     <header>
     <?php include 'menu.php'; ?>
+    
     </header>
 
     <style>
@@ -78,14 +75,16 @@ echo "" . date("l, "); echo "" . date("d/m/Y") . "<br>";
 
 
 ?>
+<b>
 <footer>
-    <!-- Footer content goes here --> 
-    <style>
-        p3 {
-            text-align: center;
-        }
-    </style>    
-    <p3>copyright@PHP</p3>
+ <!-- Footer content goes here --> 
+    <?php include 'footer.php'; ?>
+    
+    
+   
+    
+
+    
 </footer>
 </body>
 </html>
