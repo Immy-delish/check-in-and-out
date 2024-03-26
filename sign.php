@@ -112,26 +112,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
 </head>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Atim</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
 <body>
-    <h2>Sign In</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div>
-            <label>Username</label>
-            <input type="text" name="username" value="<?php echo $username; ?>">
-            <span><?php echo $username_err; ?></span>
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password">
-            <span><?php echo $password_err; ?></span>
-        </div>
-        <div>
-            <input type="submit" value="Sign In">
-        </div>
-        <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
-    </form>
-</body>
+    <div class="container">
+        <div class="image"> 
+        <img src="IMG-20231207-WA0003.jpg" alt="Image">
 
+        </div>
+        <div class="form-container">
+            <h2>Sign In</h2>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div>
+                    <label>Username</label>
+                    <input type="text" name="username" value="<?php echo $username; ?>">
+                    <span><?php echo $username_err; ?></span>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type="password" name="password">
+                    <span><?php echo $password_err; ?></span>
+                </div>
+                <div>
+                    <input type="submit" value="Sign In">
+                </div>
+                <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
+            </form>
+        </div>
+    </div>
+</body>
 </html>

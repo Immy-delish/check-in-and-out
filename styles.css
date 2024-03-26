@@ -2,6 +2,7 @@ nav {
     background-color: #4c9bf0;
     color: #fff;
 }
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -24,10 +25,12 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #111;
 }
+
 /* Style the signup and sign-in links to align right */
 .nav-item-right {
     float: right;
 }
+
 /* CSS to style the footer */
 .footer {
     background-color: #333;
@@ -53,4 +56,72 @@ nav ul li a:hover {
 
 .footer-list li a:hover {
     color: #ddd;
+}
+
+/* Sign In Page appearance */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.image {
+    flex: 1; /* Take up 50% of the container */
+    text-align: center;
+}
+
+.image img {
+    max-width: 120%;
+    height: auto;
+}
+
+.form-container {
+    flex: 2; /* Take up 50% of the container */
+    padding: 20px;
+    background-color: #f9f9f9; /* Background color for the form */
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-container form {
+    max-width: 400px; /* Adjust the width of the form as needed */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+.form-container form div {
+    margin-bottom: 10px;
+}
+
+.form-container form input[type="text"],
+.form-container form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.form-container form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-container form input[type="submit"]:hover {
+    background-color: #0056b3;
 }
