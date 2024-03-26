@@ -1,5 +1,5 @@
 nav {
-    background-color: #c9def4;
+    background-color: #4c9bf0;
     color: #fff;
 }
 nav ul {
@@ -27,4 +27,30 @@ nav ul li a:hover {
 /* Style the signup and sign-in links to align right */
 .nav-item-right {
     float: right;
+}
+/* CSS to style the footer */
+.footer {
+    background-color: #333;
+    color: rgb(54, 75, 233);
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-list li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer-list li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-list li a:hover {
+    color: #ddd;
 }
