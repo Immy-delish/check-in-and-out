@@ -1,0 +1,56 @@
+nav {
+    background-color: #4c9bf0;
+    color: #fff;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+/* Style the signup and sign-in links to align right */
+.nav-item-right {
+    float: right;
+}
+/* CSS to style the footer */
+.footer {
+    background-color: #333;
+    color: rgb(54, 75, 233);
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-list li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer-list li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-list li a:hover {
+    color: #ddd;
+}
