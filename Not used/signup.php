@@ -93,54 +93,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signup.css"> <!-- Link to external CSS file -->
+
     <title>Sign Up | Atim</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="form-container">
-        <div class="image"> 
-        <img src="IMG-20231207-WA0003.jpg" alt="Image">
-            <h2>Sign Up for to iatim.io</h2>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div>
-                    <label>Email</label>
-                    <input type="text" name="email" value="<?php echo $email; ?>">
-                    <span><?php echo $email_err; ?></span>
-                </div>
-                <div>
-                    <label>Phone Number</label>
-                    <input type="text" name="phone" value="<?php echo $phone; ?>">
-                    <span><?php echo $phone_err; ?></span>
-                </div>
-                <div>
-                    <label>Username</label>
-                    <input type="text" name="username" value="<?php echo $username; ?>">
-                    <span><?php echo $username_err; ?></span>
-                </div>
-                <div>
-                    <label>Gender</label>
-                    <select name="gender">
-                        <option value="">Select...</option>
-                        <option value="male" <?php if ($gender === 'male') echo 'selected="selected"'; ?>>Male</option>
-                        <option value="female" <?php if ($gender === 'female') echo 'selected="selected"'; ?>>Female</option>
-                    </select>
-                    <span><?php echo $gender_err; ?></span>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" name="password" value="<?php echo $password; ?>">
-                    <span><?php echo $password_err; ?></span>
-                </div>
-                <div>
-                    <input type="submit" value="Sign Up">
-                </div>
-                <p>Aready have an account? <a href="signin.php">Sign In now</a>.</p>  
-            </form>
+    <h2>Sign Up</h2>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div>
+            <label>Email</label>
+            <input type="text" name="email" value="<?php echo $email; ?>">
+            <span><?php echo $email_err; ?></span>
         </div>
-    </div>
+        <div>
+            <label>Phone Number</label>
+            <input type="text" name="phone" value="<?php echo $phone; ?>">
+            <span><?php echo $phone_err; ?></span>
+        </div>
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" value="<?php echo $username; ?>">
+            <span><?php echo $username_err; ?></span>
+        </div>
+        <div>
+            <label>Gender</label>
+            <select name="gender">
+                <option value="">Select...</option>
+                <option value="male" <?php if ($gender === 'male') echo 'selected="selected"'; ?>>Male</option>
+                <option value="female" <?php if ($gender === 'female') echo 'selected="selected"'; ?>>Female</option>
+            </select>
+            <span><?php echo $gender_err; ?></span>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" value="<?php echo $password; ?>">
+            <span><?php echo $password_err; ?></span>
+        </div>
+        <div>
+            <input type="submit" value="Sign Up">
+        </div>
+    </form>
 </body>
+
 </html>

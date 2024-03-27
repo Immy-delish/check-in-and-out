@@ -54,3 +54,45 @@ nav ul li a:hover {
 .footer-list li a:hover {
     color: #ddd;
 }
+/* Additional CSS styles for the sign-up page */
+.signup-container {
+    max-width: 800px;
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+    background-color: #f9f9f9; /* Background color for the form */
+}
+
+.signup-container h2 {
+    text-align: center;
+}
+
+.signup-container form {
+    max-width: 400px; /* Adjust the width of the form as needed */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+.signup-container form div {
+    margin-bottom: 10px;
+}
+
+.signup-container form input[type="text"],
+.signup-container form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.signup-container form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.signup-container form input[type="submit"]:hover {
+    background-color: #0056b3;
+}

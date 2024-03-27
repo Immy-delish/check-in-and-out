@@ -1,12 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>traning</title>
+        <!DOCTYPE html>
+
+    
+    <!-- Additional CSS and JavaScript imports can go here -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+
+    </head>
+     
+    <header>
+    <?php include 'signoutmenu.php'; ?>
+    
 <?php
-session_start(); // Start the session
+// Start session
+session_start();
 
-
-// Check if the user is not logged in, redirect to the sign-in page
+// Check if user is not logged in
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    // Redirect user to login page
     header("location: signin.php");
     exit;
 }
+
+
 
 // Other PHP code for the welcome page...
 ?>
@@ -44,5 +66,14 @@ foreach ($files as $file) {
     echo $file . "<br>";
 }
 ?>
-
+<b>
+<footer>
+ <!-- Footer content goes here --> 
+    <?php include 'footer.php'; ?>
+    
+  
+    
+</footer>
+</body>
+</html>
 

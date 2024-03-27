@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+}
+
+.image {
+    flex: 1; /* Take up 50% of the container */
+    text-align: center;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-container {
+    flex: 2; /* Take up 50% of the container */
+    padding: 20px;
+    background-color: #f9f9f9; /* Background color for the form */
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-container form {
+    max-width: 400px; /* Adjust the width of the form as needed */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+.form-container form div {
+    margin-bottom: 10px;
+}
+
+.form-container form input[type="text"],
+.form-container form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.form-container form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-container form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Make the title of the Form Input Field go to the Left */
+.form-container label {
+    display: inline-block;
+    width: 400px; /* Adjust the width as needed */
+    text-align: left;
+    margin-right: 10px; /* Add some space between the label and the input */
+}
