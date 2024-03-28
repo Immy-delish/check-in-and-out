@@ -125,3 +125,11 @@ body {
 .form-container form input[type="submit"]:hover {
     background-color: #0056b3;
 }
+.form-content {
+    text-align: center;
+}
+
+.centered-text {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+}
