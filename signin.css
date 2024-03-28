@@ -113,7 +113,7 @@ body {
 }
 
 .form-container form input[type="submit"] {
-    width: 100%;
+    width: 105%;
     padding: 10px;
     border-radius: 3px;
     border: none;
@@ -133,3 +133,8 @@ body {
     text-align: center;
     margin-top: 20px; /* Adjust as needed */
 }
+/* CSS for sign-in form labels */
+/*.form-container label {
+    display: block;
+    text-align: center;
+}/*
