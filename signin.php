@@ -143,11 +143,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div>
                     <input type="submit" value="Sign In">
+                    
                 </div>
                 <div class="centered-text">
                 <p>Don't have an account? <a href="signup.php">Sign Up now</a>.</p>
                 </div>
-
             </form>
         </div>
     </div>

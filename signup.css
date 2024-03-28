@@ -51,7 +51,7 @@ body {
 }
 
 .form-container form input[type="submit"] {
-    width: 100%;
+    width: 105%;
     padding: 10px;
     border-radius: 3px;
     border: none;
