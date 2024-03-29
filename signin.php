@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In | Atim</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="signin.css"> <!-- Link to external CSS file -->
+    <script>
+        // Function to validate username asynchronously
+        function validateUsername() {
+            var username = document.getElementById("username").value;
+
+            // Make an asynchronous request to validate the username
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (response.valid) {
+                        // Display green tick next to username field
+                        document.getElementById("username-icon").innerHTML = "&#10004;";
+                        // Enable password field
+                        document.getElementById("password").disabled = false;
+                        // Enable submit button
+                        document.getElementById("submit-btn").disabled = false;
+                    } else {
+                        // Clear green tick next to username field
+                        document.getElementById("username-icon").innerHTML = "";
+                        // Disable password field
+                        document.getElementById("password").disabled = true;
+                        // Disable submit button
+                        // document.getElementById("submit-btn").disabled = true;
+                    }
+                }
+            };
+            xhttp.open("GET", "validate_username.php?username=" + username, true);
+            xhttp.send();
+        }
+    </script>
 </head>
-<body><?php
+<body>
+<?php
 // Start the session
 session_start();
 
@@ -29,7 +61,6 @@ $username_err = $password_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     // Check if username is empty
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter username.";
@@ -74,21 +105,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-                            // After verifying username and password
-                            session_start(); // Start the session
-                            $_SESSION["username"] = $username; // Set the username in the session
-
 
                             // Redirect user to welcome page
                             header("location: app.atim.php");
                         } else {
                             // Password is not valid, display a generic error message
-                            $password_err = "Invalid username or password.";
+                            $password_err = "Password is Incorrect.";
                         }
                     }
                 } else {
                     // Username doesn't exist, display a generic error message
-                    $username_err = "Invalid username or password.";
+                    $username_err = "Password is Incorrect.";
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
@@ -103,53 +130,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-</head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | Atim</title>
-    <link rel="stylesheet" href="signin.css"> <!-- Link to external CSS file -->
-</head>
-<body>
     <div class="container">
         <div class="form-container">
-        
-        <div class="image"> 
-        <img src="IMG-20231207-WA0003.jpg" alt="Image">
-
-        </div>
-        <div class="form-container">
-            <h2>Sign In to iatim.io</h2>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div>
-                    <label>Username</label>
-                    <input type="text" name="username" value="<?php echo $username; ?>">
-                    <span><?php echo $username_err; ?></span>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" name="password">
-                    <span><?php echo $password_err; ?></span>
-                </div>
-                <div>
-                    <input type="submit" value="Sign In">
-                    
-                </div>
-                <div class="centered-text">
-                <p>Don't have an account? <a href="signup.php">Sign Up now</a>.</p>
-                </div>
-            </form>
+            <div class="image"> 
+                <img src="IMG-20231207-WA0003.jpg" alt="Image">
+            </div>
+            <div class="form-container">
+                <h2>Sign In to iatim.io</h2>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <div>
+                        <label>Username</label>
+                        <input type="text" name="username" id="username" onkeyup="validateUsername()">
+                        <span id="username-icon"></span>
+                        <span><?php echo $username_err; ?></span>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" id="password" disabled>
+                        <span><?php echo $password_err; ?></span>
+                    </div>
+                    <div>
+                        <input type="submit" value="Sign In" id="submit-btn" disabled>
+                    </div>
+                    <div class="centered-text">
+                        <p>Don't have an account? <a href="signup.php">Sign Up now</a>.</p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+    <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        var password = document.getElementById("passwordInput").value;
+        if (password === '') {
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+</script>
+
 </body>
 </html>
