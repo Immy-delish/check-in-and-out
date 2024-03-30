@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <div class="form-container">
         <div class="image"> 
-        <img src="IMG-20231207-WA0003.jpg" alt="Image">
+        <img src="immiephp2.png" alt="Image">
             <h2>Sign Up for to iatim.io</h2>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div>
